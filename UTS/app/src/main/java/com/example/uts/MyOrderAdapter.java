@@ -30,11 +30,6 @@ public class MyOrderAdapter extends BaseAdapter {
         this.nominal = nominal;
     }
 
-//    public MyOrderAdapter(Context context, ArrayList<Product> arrayMyOrder) {
-//        this.context = context;
-//        this.arrayMyOrder = arrayMyOrder;
-//    }
-
     @Override
     public int getCount() {
         return arrayMyOrder.size();
@@ -75,16 +70,16 @@ public class MyOrderAdapter extends BaseAdapter {
         DeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View DeleteView) {
-                arrayMyOrder.remove(position);
-                Integer abc = arrayMyOrder.size();
+            arrayMyOrder.remove(position);
+            Integer abc = arrayMyOrder.size();
 //                Toast.makeText(DeleteView.getContext(),"Quantity can't be empty" + abc.toString(),Toast.LENGTH_SHORT).show();
-                Intent deleteIntent = new Intent(DeleteView.getContext(), MyOrderActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("nominal", nominal);
-                bundle.putSerializable(FINAL_MESSAGE, arrayMyOrder);
-                deleteIntent.putExtras(bundle);
-                DeleteView.getContext().startActivity(deleteIntent);
-                ((MyOrderActivity) DeleteView.getContext()).finish();
+            Intent deleteIntent = new Intent(DeleteView.getContext(), MyOrderActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(FINAL_MESSAGE, arrayMyOrder);
+            bundle.putSerializable("nominal", nominal);
+            deleteIntent.putExtras(bundle);
+            DeleteView.getContext().startActivity(deleteIntent);
+            ((MyOrderActivity) DeleteView.getContext()).finish();
             }
         });
 

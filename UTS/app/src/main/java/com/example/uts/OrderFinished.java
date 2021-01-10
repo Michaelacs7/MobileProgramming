@@ -29,11 +29,13 @@ public class OrderFinished extends AppCompatActivity {
     public void BackHome(View view) {
         Intent BackIntent = new Intent(this, MainActivity.class);
         Bundle bundle = new Bundle();
+        bundle.putSerializable(FINAL_MESSAGE,new ArrayList<Product>());
         bundle.putSerializable("nominal", nominal);
+        BackIntent.putExtras(bundle);
         startActivity(BackIntent);
         finish();
     }
-
+// tempat rei
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
